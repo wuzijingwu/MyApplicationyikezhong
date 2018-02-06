@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@mipmap/xin11"
+            android:title="我的关注" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@mipmap/raw_1499947358"
+            android:title="我的收藏" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@mipmap/raw_1499946865"
+            android:title="搜索好友" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@mipmap/raw_1499947389"
+            android:title="消息通知"
+            />
+
+
+        <item
+
+            />
+        <item
+
+            />
+        <item
+
+            />
+        <item
+            android:icon="@mipmap/yueliang1"
+            android:title="夜间模式" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_share"-->
+    <!--android:icon="@drawable/ic_menu_share"-->
+    <!--android:title="Share" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_send"-->
+    <!--android:icon="@drawable/ic_menu_send"-->
+    <!--android:title="Send" />-->
+    <!--</menu>-->
+    <!--</item>-->
+
+</menu>

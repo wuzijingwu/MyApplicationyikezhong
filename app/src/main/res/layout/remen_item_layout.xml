@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="25dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/userimg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:roundAsCircle="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="填写好" />
+
+            <TextView
+                android:id="@+id/usertime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="22222" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp">
+
+            <Button
+                android:id="@+id/lianjie"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="170dp"
+                android:background="@drawable/shiled1" />
+
+            <Button
+                android:id="@+id/pingbi"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="170dp"
+                android:background="@drawable/copylink1"
+
+
+                />
+
+            <Button
+                android:id="@+id/jubao"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="170dp"
+                android:background="@drawable/report1"
+
+
+                />
+
+            <Button
+                android:id="@+id/dianjixuanzhuan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="170dp"
+                android:background="@drawable/icon_open"
+
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textdata"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:text="天气美美的,适合教育"
+        android:textSize="20dp" />
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/pingname1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssss" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text=":" />
+
+        <TextView
+            android:id="@+id/pingdata1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssss" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/pingname2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssss" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text=":" />
+
+        <TextView
+            android:id="@+id/pingdata2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ssss" />
+    </LinearLayout>
+</LinearLayout>

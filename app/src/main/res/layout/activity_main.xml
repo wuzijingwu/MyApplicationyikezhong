@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dra"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/ding"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:background="#318aa0">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/touxiang"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/raw_1499936862"
+                fresco:roundAsCircle="true" />
+
+            <TextView
+                android:id="@+id/ziti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="推荐"
+                android:textColor="#fff"
+                android:textSize="15dp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/bian"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/raws" />
+        </RelativeLayout>
+
+
+        <com.hjm.bottomtabbar.BottomTabBar
+            android:id="@+id/btb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ding"></com.hjm.bottomtabbar.BottomTabBar>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/chouti"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fl2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
