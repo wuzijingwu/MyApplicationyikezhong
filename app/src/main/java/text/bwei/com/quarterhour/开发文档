@@ -1,0 +1,467 @@
+一刻钟接口文档v1.9.2
+
+
+原型图链接：
+https://v2.modao.cc/app/ie30FDK9r01JD3kp8YoTRjD6ZKsxjC5#screen=sBC553E92D61499931469274
+
+请求参数：
+公共参数：token=、source=android、appVersion=101
+强制要求：使用okhttp拦截器，封装这些公共请-求参数，必须retrofit做为网络请求框架，两者之间关联起来
+app：
+versionCode：101
+versionName：1.0.1
+token：请求参数有uid，则token必传，否则非必传
+返回数据：
+code：0为成功，1为失败，2为token过期
+msg：提示消息（可根据项目需求处理逻辑）
+1.广告接口
+接口地址：https://www.zhaoapi.cn/quarter/getAd
+返回格式：json
+请求方式：get/post
+接口备注：广告接口
+请求参数说明：
+名称	类型	必填	说明
+ 
+2.版本更新接口
+接口地址：https://www.zhaoapi.cn/quarter/getVersion
+返回格式：json
+请求方式：get/post
+接口备注：版本更新
+请求参数说明：
+名称	类型	必填	说明
+ 
+ 
+3.登录接口
+接口地址：https://www.zhaoapi.cn/user/login
+返回格式：json
+请求方式：get/post
+接口备注：用户登录接口
+请求参数说明：
+名称	类型	必填	说明
+mobile	string	是	手机号
+password	string	是	密码
+token	string	否	用户令牌
+ 
+4.注册接口
+接口地址：https://www.zhaoapi.cn/quarter/register
+ 
+返回格式：json
+请求方式：get/post
+接口备注：用户注册接口
+请求参数说明：
+名称	类型	必填	说明
+regType	string	是	0， 本地注册
+ 1， 第三方登录
+mobile	string	是：本地
+ 否：第三方	手机号
+password	string	是：本地
+ 否：第三方	密码
+userId	String	是：第三方
+ 否：本地	第三方uid
+gender	String	是：第三方
+ 否：本地	0. 男
+ 1. 女
+nickname	String	是：第三方
+ 否：本地	用户昵称
+icon	String	是：第三方
+ 否：本地	第三方icon
+token	String	否	用户令牌
+5.忘记密码
+接口地址：https://www.zhaoapi.cn/quarter/resetPass
+返回格式：json
+请求方式：get/post
+接口备注：忘记密码
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+oldPassword	string	是	旧密码
+newPassword	String	是	新密码
+ 
+ 
+6.上传头像
+接口地址：https://www.zhaoapi.cn/file/upload
+返回格式：json
+请求方式：get/post
+接口备注：上传头像接口（file路径修改）
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+file	File	是	文件
+token	String	是	用户令牌
+ 
+ 
+ 
+7.获取用户信息
+接口地址：https://www.zhaoapi.cn/user/getUserInfo
+https://www.zhaoapi.cn/user/getUserInfo?uid=11275&token=22D1BCB1DB0B5005D059F66F4FDD2238
+返回格式：json
+请求方式：get/post
+接口备注：用户信息接口
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+token	String	是	用户令牌
+ 
+ 
+8.修改昵称
+接口地址：https://www.zhaoapi.cn/user/updateNickName
+返回格式：json
+请求方式：get/post
+接口备注：修改昵称
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+nickname	string	是	用户昵称
+token	String	是	用户令牌
+ 
+ 
+ 
+返回参数说明
+ 
+9.发布段子（新增jokeFiles多文件上传参数）
+接口地址：https://www.zhaoapi.cn/quarter/publishJoke
+https://www.zhaoapi.cn/quarter/publishJoke?uid=11275&content=123456&token=22D1BCB1DB0B5005D059F66F4FDD2238&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：发布段子
+请求参数说明：
+名称	类型	必填	说明
+uid	String	是	用户id
+content	String	是	段子内容
+jokeFiles	String	否	文件（遍历添加请求体）
+token	String	是	用户令牌
+
+ 
+ 
+ 
+ 
+返回参数说明
+10.获取段子列表
+接口地址：https://www.zhaoapi.cn/quarter/getJokes
+https://www.zhaoapi.cn/quarter/getJokes?page=1&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：获取段子列表
+请求参数说明：
+名称	类型	必填	说明
+page	String	是	页码
+token	string	否	用户令牌
+ 
+返回参数说明
+11.发布视频作品
+接口地址： https://www.zhaoapi.cn/quarter/publishVideo
+
+https://www.zhaoapi.cn/quarter/publishVideo?uid=11275&videoFile=T-ara%20-%20TIAMO.mkv&coverFile=http://p2.so.qhmsg.com/bdr/_240_/t01dc8a3b177e9ad917.jpg&latitude=101.34&longitude=34.56&token=22D1BCB1DB0B5005D059F66F4FDD2238&source=android&appVersion=101
+
+
+
+https://www.zhaoapi.cn/quarter/publishVideo?uid=11275&videoFile=D:\Timo.mkv&coverFile=http://p2.so.qhmsg.com/bdr/_240_/t01dc8a3b177e9ad917.jpg&latitude=101.34&longitude=34.56&token=22D1BCB1DB0B5005D059F66F4FDD2238&source=android&appVersion=101
+
+返回格式：json
+请求方式：get/post
+接口备注：发布视频作品
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+videoFile	File	是	视频文件
+coverFile	File	是	视频封面
+videoDesc	String	否	视频描述
+latitude	String	是	高德纬度坐标
+longitude	String	是	高德经度坐标
+token	String	是	用户令牌
+ 
+ 
+返回参数说明
+参考返回json串
+ 
+ 
+12.获取视频作品列表
+接口地址：https://www.zhaoapi.cn/quarter/getVideos
+https://www.zhaoapi.cn/quarter/getVideos?source=android&appVersion=101&type=1&page=1   >推荐的
+返回格式：json
+请求方式：get/post
+接口备注：获取视频作品列表
+请求参数说明：
+名称	类型	必填	说明
+uid	string	可选
+ 是：关注时
+
+ 否：推荐时	用户id
+type	string	是	1推荐
+ 2关注
+page	String	是	页码
+ 
+返回参数说明
+ 
+13. 获取某个用户的视频作品集
+接口地址：https://www.zhaoapi.cn/quarter/getUserVideos
+返回格式：json
+请求方式：get/post
+接口备注：获取某个用户的视频作品集
+请求参数说明：
+名称	类型	必填	说明
+uid	string	是	用户id
+page	String	是	页码1,2,3
+ 
+ 
+返回参数说明
+参考返回json串
+14.关注
+接口地址：https://www.zhaoapi.cn/quarter/follow
+110
+https://www.zhaoapi.cn/quarter/follow?uid=11275&followId=110&token=22D1BCB1DB0B5005D059F66F4FDD2238&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：关注
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+followId	string	是	关注用户id
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+ 
+15.获取关注用户列表
+16.根据上面的来
+接口地址：https://www.zhaoapi.cn/quarter/getFollowUsers
+https://www.zhaoapi.cn/quarter/getFollowUsers?uid=11275&token=22D1BCB1DB0B5005D059F66F4FDD2238&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：关注用户列表
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+ 
+16.作品点赞
+接口地址：https://www.zhaoapi.cn/quarter/praise
+返回格式：json
+请求方式：get/post
+接口备注：作品点赞
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+wid	String	是	作品id
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+ 
+17.收藏作品
+接口地址：https://www.zhaoapi.cn/quarter/addFavorite
+返回格式：json
+请求方式：get/post
+接口备注：收藏作品
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+wid	String	是	作品id
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+18.取消收藏
+接口地址：https://www.zhaoapi.cn/quarter/cancelFavorite
+返回格式：json
+请求方式：get/post
+接口备注：取消收藏
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+wid	String	是	作品id
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+19.作品评论
+接口地址：https://www.zhaoapi.cn/quarter/comment
+返回格式：json
+请求方式：get/post
+接口备注：作品评论
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	string	是	当前用户id
+wid	String	是	作品id
+content	String	是	评论内容
+
+token	String	是	用户令牌
+ 
+返回参数说明
+参考返回json串
+ 
+20.视频作品详情
+接口地址：https://www.zhaoapi.cn/quarter/getVideoDetail
+返回格式：json
+请求方式：get/post
+接口备注：视频作品详情
+请求参数说明：
+ 
+名称	类型	必填	说明
+wid	String	是	作品id
+ 
+返回参数说明
+参考返回json串
+ 
+21.段子详情
+接口地址：https://www.zhaoapi.cn/quarter/getJokeDetail
+ 
+https://www.zhaoapi.cn/quarter/getJokeDetail?jid=1457&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：段子详情
+请求参数说明：
+ 
+名称	类型	必填	说明
+jid	String1457	是	段子id
+ 
+返回参数说明
+参考返回json串
+21.段子点赞
+接口地址：https://www.zhaoapi.cn/quarter/jokePraise
+ 
+返回格式：json
+请求方式：get/post
+接口备注：段子点赞
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	String	是	用户id
+jid	String	是	段子id
+ 
+返回参数说明
+参考返回json串
+22.段子评论
+接口地址：https://www.zhaoapi.cn/quarter/commentJoke
+ 
+返回格式：json
+请求方式：get/post
+接口备注：段子评论
+请求参数说明：
+ 
+名称	类型	必填	说明
+uid	String	是	用户id
+jid	String	是	段子id
+ 
+返回参数说明
+参考返回json串
+23.随机钟友
+接口地址：https://www.zhaoapi.cn/quarter/randomFriends
+
+https://www.zhaoapi.cn/quarter/randomFriends?&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：随机钟友
+请求参数说明：
+ 
+名称	类型	必填	说明
+ 
+返回参数说明
+参考返回json串
+ 
+24.搜索钟友
+接口地址：https://www.zhaoapi.cn/quarter/searchFriends
+https://www.zhaoapi.cn/quarter/searchFriends?keywords=%E5%B0%8F%E5%93%A5%E5%93%A5&page=1&source=android&appVersion=101
+返回格式：json
+请求方式：get/post
+接口备注：搜索钟友
+请求参数说明：
+ 
+名称	类型	必填	说明
+keywords	String	是	关键词
+page	String	是	页码
+ 
+返回参数说明
+参考返回json串
+ 
+25.获取热门视频列表
+接口地址：https://www.zhaoapi.cn/quarter/getHotVideos
+
+
+返回格式：json
+请求方式：get/post
+接口备注：获取热门视频列表
+请求参数说明：
+名称	类型	必填	说明
+page	String	是	页码
+ 
+返回参数说明
+ 
+26.获取附近视频列表
+接口地址：https://www.zhaoapi.cn/quarter/getNearVideos
+https://www.zhaoapi.cn/quarter/getNearVideos?page=2&latitude=120&longitude=100&token=1&source=android&appVersion=101
+39.26
+115.25
+
+返回格式：json
+请求方式：get/post
+接口备注：获取附近视频列表
+请求参数说明：
+名称	类型	必填	说明
+page	String	是	页码
+latitude	String	是	纬度116°23′17〃
+17
+
+longitude	String	是	经度39°54′27〃
+
+
+ 
+返回参数说明
+ 
+27.删除收藏
+接口地址：https://www.zhaoapi.cn/quarter/removeFavorite
+返回格式：json
+请求方式：get/post
+接口备注：删除收藏
+请求参数说明：
+名称	类型	必填	说明
+uid	String	是	用户id
+fid	String	是	纬度
+ 
+返回参数说明
+ 
+ 
+28.删除作品
+接口地址：https://www.zhaoapi.cn/quarter/removeWork
+返回格式：json
+请求方式：get/post
+接口备注：删除作品
+请求参数说明：
+名称	类型	必填	说明
+uid	String	是	用户id
+wid	String	是	作品id
+ 
+返回参数说明
+ 
+ 
+29.获取作品个人中心（新增）
+接口地址：https://www.zhaoapi.cn/quarter/getWorkInfo
+返回格式：json
+请求方式：get/post
+接口备注：获取作品个人中心
+请求参数说明：
+名称	类型	必填	说明
+uid	String	是	用户id
+ 
+返回参数说明
+ 
+ 
+ 
+30.收藏列表
+接口地址：https://www.zhaoapi.cn/quarter/getFavorites
+返回格式：json
+请求方式：get/post
+接口备注：收藏列表
+请求参数说明：
+名称	类型	必填	说明
+uid	String	是	用户id
+ 
