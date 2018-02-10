@@ -52,7 +52,8 @@ public class AttentionFragment extends Fragment implements Ihotview {
     private LinearLayoutManager linearLayoutManager;
     private text.bwei.com.quarterhour.hot.presenter.presenterhot presenterhot;
     private text.bwei.com.quarterhour.hot.presenter.presenterhotleft presenterhotleft;
-    //    private text.bwei.com.uuest.hot.presenter.presenterhot presenterhot;
+
+//        private text.bwei.com.uuest.hot.presenter.presenterhot presenterhot;
 //    private text.bwei.com.uuest.hot.presenter.presenterhotleft presenterhotleft;
 
     @Nullable

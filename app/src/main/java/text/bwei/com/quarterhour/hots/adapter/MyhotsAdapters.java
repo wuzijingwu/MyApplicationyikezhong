@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import text.bwei.com.quarterhour.R;
 import text.bwei.com.quarterhour.hots.bean.HotsBeans;
 //import text.bwei.com.uuest.R;
@@ -26,9 +29,20 @@ public class MyhotsAdapters extends RecyclerView.Adapter {
     List<HotsBeans.DataBean> list;
     Context context;
 
+    List<Integer> heightList;
+
+
     public MyhotsAdapters(List<HotsBeans.DataBean> list, Context context) {
         this.list = list;
         this.context = context;
+
+        heightList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            int height = new Random().nextInt(200) + 100;//[100,300)的随机数
+            heightList.add(height);
+        }
+
+
     }
 
     @Override
@@ -41,18 +55,25 @@ public class MyhotsAdapters extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         MyhotsViewHolder myhotsViewHolder = (MyhotsViewHolder) holder;
-
-//        myhotsViewHolder.videoplayersss.TOOL_BAR_EXIST = false;
-//        myhotsViewHolder.videoplayersss.setUp(list.get(position).getVideoUrl()
-//                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "播放视频的标题，可以为空");
-////        jcVideoPlayerStandard.loop  = true;//是否循环播放
+//        if (list.get(position).getCover().equals("")) {
+//            myhotsViewHolder.imageHots.setImageResource(R.mipmap.ic_launcher);
+//            //.setImageURI("http://i1.umei.cc/uploads/tu/201802/9999/rn0a5cbb706a.jpg");
+//        } else {
+//            myhotsViewHolder.imageHots.setImageURI(list.get(position).getCover());
+//        }
 //
-//        Glide.with(context).load(list.get(position).getCover())
-//                .into(myhotsViewHolder.videoplayersss.thumbImageView);
-//        myhotsViewHolder.videoplayersss.widthRatio = 4;//播放比例
-//        myhotsViewHolder.videoplayersss.heightRatio = 3;
-        myhotsViewHolder.imageHots.setImageURI(list.get(position).getCover());
+        ViewGroup.LayoutParams params = myhotsViewHolder.videoplayerHots.getLayoutParams();
+        params.height = heightList.get(position);
+        myhotsViewHolder.videoplayerHots.setLayoutParams(params);
+        myhotsViewHolder.videoplayerHots.TOOL_BAR_EXIST = false;
+        myhotsViewHolder.videoplayerHots.setUp(list.get(position).getVideoUrl()
+                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "");
+        myhotsViewHolder.videoplayerHots.loop = true;//是否循环播放
 
+        Glide.with(context).load(list.get(position).getCover())
+                .into(myhotsViewHolder.videoplayerHots.thumbImageView);
+        myhotsViewHolder.videoplayerHots.widthRatio = 4;//播放比例
+        myhotsViewHolder.videoplayerHots.heightRatio = 5;
 
     }
 
@@ -62,8 +83,9 @@ public class MyhotsAdapters extends RecyclerView.Adapter {
     }
 
     class MyhotsViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.image_hots)
-        SimpleDraweeView imageHots;
+
+        @BindView(R.id.videoplayer_hots)
+        JCVideoPlayerStandard videoplayerHots;
 
         public MyhotsViewHolder(View itemView) {
             super(itemView);

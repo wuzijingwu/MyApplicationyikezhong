@@ -18,13 +18,13 @@ import text.bwei.com.quarterhour.utils.RetroFactory;
 
 public class modelhots implements Ihotsmodel {
     @Override
-    public void Requesthots(String url, int page, final Onselecthots onselecthots) {
+    public void Requesthots(String url, int page,String token, final Onselecthots onselecthots) {
 //        quarter/getHotVideos?page=1&source=android&appVersion=101&token=1
         HashMap<String, String> map = new HashMap<>();
         map.put("page", page + "");
         map.put("source", "android");
         map.put("appVersion", 101 + "");
-        map.put("token", 1 + "");
+        map.put("token", token);
 
         Observable<HotsBeans> hotsdata = RetroFactory.getInstance().getHotsdata("quarter/getHotVideos", map);
         hotsdata.subscribeOn(Schedulers.io())

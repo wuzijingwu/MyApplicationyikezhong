@@ -5,5 +5,7 @@ package text.bwei.com.quarterhour.near.model;
  */
 
 public interface INearmodel {
-    void RequestnearSuccess(String url, int page, String latitude, String longitude, Onselectnear onselectnear);
+//    https://www.zhaoapi.cn/quarter/getNearVideos?page=2&
+    // latitude=120&longitude=100&token=1&source=android&appVersion=101
+    void RequestnearSuccess(String url, String page, String latitude, String longitude,String token, Onselectnear onselectnear);
 }

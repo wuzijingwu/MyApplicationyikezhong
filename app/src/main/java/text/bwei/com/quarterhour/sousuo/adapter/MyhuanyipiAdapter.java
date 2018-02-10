@@ -40,6 +40,8 @@ public class MyhuanyipiAdapter extends RecyclerView.Adapter {
 
         Myhuanyipiview myhuanyipiview = (Myhuanyipiview) holder;
         myhuanyipiview.textHuanyipi.setText(list.get(position).getUsername());
+        myhuanyipiview.imageHuanyipi.setImageURI("http://p1.so.qhmsg.com/bdr/_240_/t010887fe3569a49636.jpg");
+
 
     }
 

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<ImageView-->
+    <!--android:id="@+id/image_native"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="150dp" />-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_native"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="380dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/nnn" />
+
+    <ImageView
+        android:id="@+id/p"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="380dp"
+        android:layout_alignParentRight="true"        android:src="@mipmap/aaa"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/f"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="380dp"
+        android:layout_alignParentRight="true"        android:src="@mipmap/sss"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/j"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="380dp"
+        android:layout_alignParentRight="true"        android:src="@mipmap/ddd"
+        android:visibility="invisible" />
+
+</RelativeLayout>

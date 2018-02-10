@@ -3,6 +3,7 @@ package text.bwei.com.quarterhour.joke;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import text.bwei.com.quarterhour.R;
 import text.bwei.com.quarterhour.joke.adapter.MyjokeAdapter;
@@ -37,6 +39,8 @@ public class JokeFragment extends Fragment implements Ijokeview {
 
     @BindView(R.id.recycler_joke)
     RecyclerView recyclerJoke;
+    @BindView(R.id.swip_joke)
+    SwipeRefreshLayout swipJoke;
     //    @BindView(R.id.sdv_image_circle)
 //    SimpleDraweeView sdvImageCircle;
 //    @BindView(R.id.text_name)
@@ -53,6 +57,7 @@ public class JokeFragment extends Fragment implements Ijokeview {
 //    Button button4;
     private View view;
     private Unbinder unbinder;
+    public int page = 1;
 
     private LinearLayoutManager linearLayoutManager;
     private text.bwei.com.quarterhour.joke.presenter.presenterjoke presenterjoke;
@@ -62,7 +67,6 @@ public class JokeFragment extends Fragment implements Ijokeview {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View inflate = inflater.inflate(R.layout.jokefragment, container, false);
-
         unbinder = ButterKnife.bind(this, inflate);
         return inflate;
     }
@@ -70,47 +74,10 @@ public class JokeFragment extends Fragment implements Ijokeview {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         presenterjoke = new presenterjoke(this);
-        presenterjoke.getjoke(Api.URL, 1);
-
-
+        presenterjoke.getjoke(Api.URL, page);
     }
 
-
-//    @OnClick({R.id.sdv_image_circle, R.id.text_name, R.id.text_time, R.id.button1, R.id.button2, R.id.button3, button4})
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            default:
-//                break;
-//            case R.id.sdv_image_circle:
-//                break;
-//            case R.id.text_name:
-//                break;
-//            case R.id.text_time:
-//                break;
-//            case R.id.button1:
-//                if (isVisible) {
-//                    button2.setVisibility(View.VISIBLE);
-//                    button3.setVisibility(View.VISIBLE);
-//                    button4.setVisibility(View.VISIBLE);
-//                    isVisible = false;
-//                } else {
-//                    button2.setVisibility(View.INVISIBLE);
-//                    button3.setVisibility(View.INVISIBLE);
-//                    button4.setVisibility(View.INVISIBLE);
-//                    isVisible = true;
-//                }
-//                break;
-//            case R.id.button2:
-//
-//                break;
-//            case R.id.button3:
-//                break;
-//            case button4:
-//                break;
-//        }
-//    }
 
     @Override
     public void onDestroyView() {
@@ -120,9 +87,47 @@ public class JokeFragment extends Fragment implements Ijokeview {
     }
 
     @Override
-    public void showjokeSuccess(List<JokeBean.DataBean> list) {
+    public void showjokeSuccess(final List<JokeBean.DataBean> list) {
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerJoke.setLayoutManager(linearLayoutManager);
         recyclerJoke.setAdapter(new MyjokeAdapter(list, getActivity()));
+        recyclerJoke.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                int lastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
+                if (lastVisibleItemPosition == list.size() - 1) {
+                    page++;
+                    presenterjoke.getjoke(Api.URL, page);
+                }
+
+
+            }
+        });
+
+        swipJoke.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                page++;
+                presenterjoke.getjoke(Api.URL, page);
+                swipJoke.setRefreshing(false);
+
+            }
+        });
+
+
+    }
+
+    @OnClick({R.id.recycler_joke, R.id.swip_joke})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.recycler_joke:
+                break;
+            case R.id.swip_joke:
+                break;
+        }
     }
 }

@@ -15,6 +15,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.hjm.bottomtabbar.BottomTabBar;
 
 import text.bwei.com.quarterhour.Recommend.RecommendFragment;
+import text.bwei.com.quarterhour.chehua.SlideOverFragment;
 import text.bwei.com.quarterhour.joke.JokeFragment;
 
 import static text.bwei.com.quarterhour.R.id.btb;
@@ -68,9 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 .setFontSize(8)
                 .setTabPadding(4, 6, 10)
                 .setChangeColor(Color.RED, Color.DKGRAY)
-                .addTabItem("推荐", R.mipmap.ic_launcher, RecommendFragment.class)
-                .addTabItem("段子", R.mipmap.ic_launcher, JokeFragment.class)
-                .addTabItem("视频", R.mipmap.ic_launcher, VideoFragment.class)
+                .addTabItem("推荐", R.mipmap.raw_1415, RecommendFragment.class)
+                .addTabItem("段子", R.mipmap.raw_1314, JokeFragment.class)
+                .addTabItem("视频", R.mipmap.raw_4145, VideoFragment.class)
                 .isShowDivider(false)
                 .setOnTabChangeListener(new BottomTabBar.OnTabChangeListener() {
                     @Override

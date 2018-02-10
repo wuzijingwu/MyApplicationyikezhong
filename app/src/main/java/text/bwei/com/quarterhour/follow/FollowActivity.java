@@ -48,10 +48,7 @@ public class FollowActivity extends Activity implements Ifollowview {
         followpresenter = new followpresenter(this);
         SharedPreferences user = getSharedPreferences("USER", MODE_PRIVATE);
         int uid = user.getInt("uid", 1);
-//        sp.edit().putString("name", list.getMobile())
-//                .putInt("uid", list.getUid())
-//                .putString("pwd", list.getPassword())
-//                .putString("token", list.getToken()).commit();
+
         String token = user.getString("token", "111");
 
 //        "22D1BCB1DB0B5005D059F66F4FDD2238"

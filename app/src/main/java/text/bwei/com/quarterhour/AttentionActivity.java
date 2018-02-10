@@ -42,7 +42,7 @@ public class AttentionActivity extends Activity {
             case R.id.recycler_attention:
                 break;
             case R.id.back_attention:
-                AttentionActivity.this.setResult(2);
+
                 finish();
                 break;
             case R.id.ding:

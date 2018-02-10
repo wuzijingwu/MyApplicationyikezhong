@@ -1,6 +1,5 @@
-package text.bwei.com.quarterhour;
+package text.bwei.com.quarterhour.chehua;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,8 +19,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import text.bwei.com.quarterhour.qingcu.ExitActivity;
+import text.bwei.com.quarterhour.LoginActivity;
+import text.bwei.com.quarterhour.ProductionActivity;
+import text.bwei.com.quarterhour.R;
 import text.bwei.com.quarterhour.follow.FollowActivity;
 import text.bwei.com.quarterhour.sousuo.SeekActivity;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by dell on 2018/2/1.
@@ -87,31 +92,15 @@ public class SlideOverFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        EventBus.getDefault().register(this);
 
-//        SharedPreferences user = getActivity().getSharedPreferences("USER", MODE_PRIVATE);
-//        String name11 = user.getString("name", "000");
-//        wangming.setText(name11);
 
     }
-
-//    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-//    public void getloginname(LoginEvent loginEvent) {
-//        name = loginEvent.getName();
-//    }
-
-
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        EventBus.getDefault().unregister(this);
-//    }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        SharedPreferences user = getActivity().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        SharedPreferences user = getActivity().getSharedPreferences("USER", MODE_PRIVATE);
 //        LoginBean.DataBean dataBean = new LoginBean.DataBean();
         String name = user.getString("name", "000");
         if (!name.equals("000")) {
@@ -119,14 +108,22 @@ public class SlideOverFragment extends Fragment {
         } else {
             wangming.setText("点击登录");
         }
+
+
+        SharedPreferences ppp = getActivity().getSharedPreferences("PPP", MODE_PRIVATE);
+        String names = ppp.getString("name", "111");
+        if (!name.equals("111")) {
+            gq.setText(names);
+        } else {
+            gq.setText("设置个性签名");
+        }
+
+
     }
 
     @Override
     public void onResume() {
         int id = getActivity().getIntent().getIntExtra("id", 0);
-//        if (id == 2) {
-//
-//        }
         super.onResume();
     }
 
@@ -144,14 +141,17 @@ public class SlideOverFragment extends Fragment {
             case R.id.deng:
                 break;
             case R.id.gq:
+//                String s = gq.getText().toString();
+                Intent intent2 = new Intent(getActivity(), BianjiActivity.class);
+
+
+                startActivity(intent2);
+
+
                 break;
             case R.id.tu1:
                 break;
             case R.id.guanzhu:
-
-                Intent intent2 = new Intent(getActivity(), AttentionActivity.class);
-                startActivityForResult(intent2, 2);
-//                getActivity().finish();
                 break;
             case R.id.tu2:
                 break;
@@ -183,8 +183,6 @@ public class SlideOverFragment extends Fragment {
             case R.id.guanzu:
                 Intent intent = new Intent(getActivity(), FollowActivity.class);
                 startActivity(intent);
-
-
                 break;
             case R.id.shouchang:
                 break;

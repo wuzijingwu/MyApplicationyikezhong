@@ -4,91 +4,107 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:background="#318aa0">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/back_production"
-            android:layout_width="30dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="15dp"
-            android:text="返回"
-            android:textColor="#fff"
-            android:textSize="15dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="搜索好友"
-            android:textColor="#fff"
-            android:textSize="15dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:background="#318aa0">
 
+                <TextView
+                    android:id="@+id/back_production"
+                    android:layout_width="30dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="15dp"
+                    android:text="返回"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/ed_seek"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@android:color/white" />
-
-        <ImageView
-            android:id="@+id/image_seek"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/raw_1499946865" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="搜索好友"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
 
 
-    </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ed_seek"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/image_seek"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/raw_1499946865" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_seek"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true">
+            </LinearLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="你可能感兴趣的用户"
-            android:textSize="15dp" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/huanyihuan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="15dp"
-            android:text="换一批"
-            android:textSize="15dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true">
 
 
-    </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="你可能感兴趣的用户"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/huanyihuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="15dp"
+                    android:text="换一批"
+                    android:textSize="15dp" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_seek2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_seek2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
 
 
 </LinearLayout>

@@ -16,7 +16,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import text.bwei.com.quarterhour.fragment.NativeFragment;
+import text.bwei.com.quarterhour.bendi.NativeFragment;
 import text.bwei.com.quarterhour.fragment.UploadingFragment;
 
 /**

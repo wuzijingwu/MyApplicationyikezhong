@@ -27,8 +27,8 @@ public class presenterhots {
         ihotsmodel = new modelhots();
     }
 
-    public void gethotsviews(String url, int page) {
-        ihotsmodel.Requesthots(url, page, new Onselecthots() {
+    public void gethotsviews(String url, int page,String token) {
+        ihotsmodel.Requesthots(url, page,token, new Onselecthots() {
             @Override
             public void datahotsSuccess(List<HotsBeans.DataBean> list) {
                 ihotsview.showhotsSuccess(list);

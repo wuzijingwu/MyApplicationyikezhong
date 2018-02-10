@@ -1,57 +1,33 @@
 package text.bwei.com.quarterhour;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 /**
  * Created by dell on 2018/2/6.
  */
 
-public class SuccessActivity extends Activity {
-    @BindView(R.id.back_success)
-    TextView backSuccess;
-    @BindView(R.id.ding)
-    RelativeLayout ding;
-    @BindView(R.id.imageView)
-    ImageView imageView;
-    @BindView(R.id.textView)
-    TextView textView;
-    @BindView(R.id.kankan)
-    Button kankan;
+public class SuccessActivity extends AppCompatActivity {
+
+    private AnimationButton animationButton;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
-        ButterKnife.bind(this);
+        animationButton = (AnimationButton) findViewById(R.id.animation_btn);
+        animationButton.setAnimationButtonListener(new AnimationButton.AnimationButtonListener() {
+            @Override
+            public void onClickListener() {
+                animationButton.start();
+            }
 
-    }
-
-    @OnClick({R.id.back_success, R.id.ding, R.id.imageView, R.id.textView, R.id.kankan})
-    public void onClick(View v) {
-        switch (v.getId()) {
-            default:
-                break;
-            case R.id.back_success:
-                break;
-            case R.id.ding:
-                break;
-            case R.id.imageView:
-                break;
-            case R.id.textView:
-                break;
-            case R.id.kankan:
-                break;
-        }
+            @Override
+            public void animationFinish() {
+                Toast.makeText(SuccessActivity.this, "动画执行完毕", Toast.LENGTH_SHORT).show();
+//                finish();
+            }
+        });
     }
 }

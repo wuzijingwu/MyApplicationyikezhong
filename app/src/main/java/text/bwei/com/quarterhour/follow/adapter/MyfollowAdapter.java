@@ -39,17 +39,24 @@ public class MyfollowAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         Myfollowview myfollowview = (Myfollowview) holder;
-        myfollowview.text1Followitem.setText(data.get(position).getNickname());
-//        myfollowview.text2Item.setText(data.get(position).get);
-        myfollowview.text3Item.setText(data.get(position).getCreatetime());
-        if (data.get(position).getIcon() == null) {
 
-            myfollowview.sdvImageCircle.setImageResource(R.mipmap.ic_launcher_round);
+        if (data.get(position).getNickname() == null) {
+
+            myfollowview.text1Followitem.setText("哈哈");
+
+        } else {
+
+            myfollowview.text1Followitem.setText(data.get(position).getNickname());
 
         }
-        else{
-            myfollowview.sdvImageCircle.setImageURI(data.get(position).getIcon());
 
+        myfollowview.text2Item.setText(data.get(position).getUsername());
+        myfollowview.text3Item.setText(data.get(position).getCreatetime());
+        if (data.get(position).getIcon() == null) {
+            myfollowview.sdvImageCircle.setImageResource(R.mipmap.ic_launcher_round);
+
+        } else {
+            myfollowview.sdvImageCircle.setImageURI(data.get(position).getIcon());
         }
 
 
@@ -57,7 +64,7 @@ public class MyfollowAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data == null ? 0 : data.size();
     }
 
     class Myfollowview extends RecyclerView.ViewHolder {

@@ -26,13 +26,17 @@
         <activity android:name=".singup.LogintwoActivity" />
         <activity android:name=".singup.RegisterActivity" />
         <activity android:name=".singup.PwdActivity" />
-        <activity android:name=".ExitActivity" />
+        <activity android:name=".qingcu.ExitActivity" />
         <activity android:name=".follow.FollowActivity" />
         <activity android:name=".CreationActivity" />
         <activity android:name=".fabiao.CrosstalkActivity" />
         <activity android:name=".SuccessActivity" />
         <activity android:name=".InvideoActivity" />
         <activity android:name=".sousuo.SeekActivity" />
+        <activity android:name=".xiangqing.ParticularsActivity" />
+        <activity android:name=".dunazixiangqing.DuanzixingqingActiity" />
+        <activity android:name=".chehua.BianjiActivity" />
+        <activity android:name=".fapinlun.FapinlunActivity" />
 
     </application>
 

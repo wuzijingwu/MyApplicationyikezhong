@@ -7,6 +7,9 @@ import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 import rx.Observable;
+import text.bwei.com.quarterhour.bendi.bean.NativeBean;
+import text.bwei.com.quarterhour.chehua.bean.XiugaiBean;
+import text.bwei.com.quarterhour.dunazixiangqing.bean.DuanziBean;
 import text.bwei.com.quarterhour.fabiao.bean.CrosstalkBean;
 import text.bwei.com.quarterhour.follow.bean.FollowBean;
 import text.bwei.com.quarterhour.hot.bean.HotBean;
@@ -19,6 +22,8 @@ import text.bwei.com.quarterhour.singup.bean.PwdBean;
 import text.bwei.com.quarterhour.singup.bean.SingUpBean;
 import text.bwei.com.quarterhour.sousuo.bean.HuanyipiBean;
 import text.bwei.com.quarterhour.sousuo.bean.SeekBean;
+import text.bwei.com.quarterhour.xiangqing.bean.DianzanBean;
+import text.bwei.com.quarterhour.xiangqing.bean.ParBean;
 //import text.bwei.com.uuest.hot.bean.HotBean;
 //import text.bwei.com.uuest.hot.bean.HotLeftBean;
 //import text.bwei.com.uuest.hots.bean.HotsBeans;
@@ -33,6 +38,11 @@ public interface ApiServer {
 
     @GET("quarter/getAd")
     Observable<HotBean> gethotdata();
+
+
+    @POST
+    Observable<NativeBean> getnativedata(@Url String url, @QueryMap Map<String, String> map);
+
 
     @POST
     Observable<HotLeftBean> gethotleftdata(@Url String url, @QueryMap Map<String, String> map);
@@ -72,7 +82,26 @@ public interface ApiServer {
     Observable<SeekBean> getseekdata(@Url String url, @QueryMap Map<String, String> map);
 
     //换一批好友
-    @GET("quarter/randomFriends?")
-    Observable<HuanyipiBean> gethuanyipiata();
+//    @GET("quarter/randomFriends?")
+//    Observable<HuanyipiBean> gethuanyipiata();
+    //换一批好友
+
+    @POST
+    Observable<HuanyipiBean> gethuanyipiata(@Url String url, @QueryMap Map<String, String> map);
+
+    @POST
+    Observable<ParBean> getparata(@Url String url, @QueryMap Map<String, String> map);
+
+    //段子详情页
+    @POST
+    Observable<DuanziBean> getDuanziata(@Url String url, @QueryMap Map<String, String> map);
+
+    //修改名称
+    @POST
+    Observable<XiugaiBean> getxiugaiata(@Url String url, @QueryMap Map<String, String> map);
+
+    //点赞
+    @POST
+    Observable<DianzanBean> getdianzandata(@Url String url, @QueryMap Map<String, String> map);
 
 }

@@ -26,11 +26,17 @@
             android:textColor="#ede8e8"
             android:textSize="18dp" />
     </RelativeLayout>
-
+    <Button
+        android:id="@+id/qingcu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除缓存"
+        android:textColor="#f00" />
     <Button
         android:id="@+id/tuichu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="退出登录"
         android:textColor="#f00" />
+
 </LinearLayout>

@@ -1,5 +1,6 @@
 package text.bwei.com.quarterhour.sousuo.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import rx.Observable;
@@ -16,7 +17,13 @@ import text.bwei.com.quarterhour.utils.RetroFactory;
 public class huanyipimodel implements Ihuanyipimodel {
     @Override
     public void Requesthunayipi(String url, final Onselecthuanyipi onselecthuanyipi) {
-        Observable<HuanyipiBean> gethuanyipiata = RetroFactory.getInstance().gethuanyipiata();
+
+        HashMap<String, String> map = new HashMap<>();
+//        source=android&appVersion=101
+        map.put("source", "android");
+        map.put("appVersion", 101 + "");
+
+        Observable<HuanyipiBean> gethuanyipiata = RetroFactory.getInstance().gethuanyipiata("quarter/randomFriends", map);
         gethuanyipiata.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<HuanyipiBean>() {

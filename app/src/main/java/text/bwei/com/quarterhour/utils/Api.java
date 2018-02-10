@@ -5,5 +5,6 @@ package text.bwei.com.quarterhour.utils;
  */
 
 public class Api {
-    public static final String URL = "https://www.zhaoapi.cn";
+    public static final String URL = "https://www.zhaoapi.cn/";
+    public static final String URLLL = "http://apiv3.yangkeduo.com/";
 }

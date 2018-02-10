@@ -49,7 +49,7 @@ public class HotFragment extends Fragment implements Ihotview {
     RecyclerView recyclerHot;
     private View view;
     private Unbinder unbinder;
-//    private text.bwei.com.uuest.hot.presenter.presenterhot presenterhot;
+    //    private text.bwei.com.uuest.hot.presenter.presenterhot presenterhot;
     private LinearLayoutManager linearLayoutManager;
     private text.bwei.com.quarterhour.hot.presenter.presenterhot presenterhot;
     private text.bwei.com.quarterhour.hot.presenter.presenterhotleft presenterhotleft;
@@ -120,9 +120,5 @@ public class HotFragment extends Fragment implements Ihotview {
     public void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
-
-//        JCVideoPlayer.setGlobleSkin();//设置全局皮肤
-//        videoController.setSkin();//设置这一个播放器的皮肤
-
     }
 }

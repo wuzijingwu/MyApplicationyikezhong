@@ -1,6 +1,7 @@
 package text.bwei.com.quarterhour.joke.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +11,15 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import text.bwei.com.quarterhour.R;
+import text.bwei.com.quarterhour.dunazixiangqing.DuanzixingqingActiity;
+import text.bwei.com.quarterhour.joke.bean.EventJid;
 import text.bwei.com.quarterhour.joke.bean.JokeBean;
 //import text.bwei.com.uuest.R;
 //import text.bwei.com.uuest.joke.bean.JokeBean;
@@ -42,7 +47,7 @@ public class MyjokeAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
         myjokeview = (Myjokeview) holder;
         myjokeview.textBinlun.setText(list.get(position).getContent());
@@ -74,8 +79,22 @@ public class MyjokeAdapter extends RecyclerView.Adapter {
         }
 
         myjokeview.textTime.setText(list.get(position).getCreateTime());
-        myjokeview.textName.setText(list.get(position).getUser().getNickname());
 
+        if (list.get(position).getUser().getNickname() == null) {
+
+            myjokeview.textName.setText("null");
+        } else {
+            myjokeview.textName.setText(list.get(position).getUser().getNickname());
+
+        }
+        myjokeview.sdvImageCircle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DuanzixingqingActiity.class);
+                EventBus.getDefault().postSticky(new EventJid(list.get(position).getJid()));
+                context.startActivity(intent);
+            }
+        });
 
     }
 

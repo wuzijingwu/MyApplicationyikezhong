@@ -11,8 +11,8 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="19dp"
         app:roundAsCircle="true" />
 
 
@@ -20,9 +20,9 @@
         android:id="@+id/videoplayer"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="25dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/image_hot"
-        android:layout_alignParentStart="true">
+        android:layout_marginTop="25dp">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -38,8 +38,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image"
         android:layout_alignStart="@+id/text_time"
-        android:layout_alignTop="@+id/image_hot"
         android:text="天蝎喝牛奶"
         android:textColor="@color/colorAccent" />
 
@@ -51,8 +51,37 @@
         android:layout_alignBottom="@+id/image_hot"
         android:layout_marginStart="26dp"
         android:layout_toEndOf="@+id/image_hot"
-        android:text="2018-01-31"
-        />
+        android:text="2018-01-31" />
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/jia" />
+
+    <ImageView
+        android:id="@+id/p"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ping"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/f"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/fu"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/j"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/ju"
+        android:visibility="invisible" />
 
 </RelativeLayout>

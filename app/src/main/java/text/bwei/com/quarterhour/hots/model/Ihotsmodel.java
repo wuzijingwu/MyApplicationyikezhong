@@ -5,7 +5,7 @@ package text.bwei.com.quarterhour.hots.model;
  */
 
 public interface Ihotsmodel {
-    void Requesthots(String url, int page, Onselecthots onselecthots);
+    void Requesthots(String url, int page,String token, Onselecthots onselecthots);
 
 
 }

@@ -2,6 +2,7 @@ package text.bwei.com.quarterhour.near.preaenter;
 
 import java.util.List;
 
+import text.bwei.com.quarterhour.near.bean.NearBean;
 import text.bwei.com.quarterhour.near.model.INearmodel;
 import text.bwei.com.quarterhour.near.model.Onselectnear;
 import text.bwei.com.quarterhour.near.model.modelnear;
@@ -25,12 +26,13 @@ public class prsenternear {
         this.inearview = inearview;
         iNearmodel = new modelnear();
     }
-
-    public void getnear(String url, int page, String latitude, String longitude) {
-        iNearmodel.RequestnearSuccess(url, page, latitude, longitude, new Onselectnear() {
+//    https://www.zhaoapi.cn/quarter/getNearVideos?page=2&latitude=120
+    // &longitude=100&token=1&source=android&appVersion=101
+    public void getnear(String url, String page, String latitude,  String longitude,String token) {
+        iNearmodel.RequestnearSuccess(url, page, latitude, longitude, token, new Onselectnear() {
             @Override
-            public void datanearSuccess(List<?> list) {
-                inearview.shownearSuccess(list);
+            public void datanearSuccess(List<NearBean.DataBean> data) {
+                inearview.shownearSuccess(data);
             }
         });
 
